@@ -3,7 +3,7 @@
 Welcome to the **Restaurant API**! 🚀  
 This is a clean, scalable, and production-ready Web API built with **.NET 8**, using **MongoDB** for data storage and following **Clean Architecture principles**.
 
-Use this API to manage your restaurant’s menu items including name, price, description, availability, and category.
+Use this API to manage your restaurant's menu items including name, price, description, availability, and category.
 
 ---
 
@@ -21,20 +21,33 @@ Use this API to manage your restaurant’s menu items including name, price, des
 
 ## 🧾 Folder Structure
 
-\`\`\`plaintext
+```
 RestaurantApi/
-├── RestaurantApi.API           # API layer (Controllers, Program.cs)
-├── RestaurantApi.Application   # Business logic layer (Services)
-├── RestaurantApi.Domain        # Core entities & contracts
-├── RestaurantApi.Infrastructure# DB context, Repositories
-├── RestaurantApi.Tests         # Unit Tests using xUnit
-└── RestaurantApi.sln           # .NET solution file
-\`\`\`
+├── RestaurantApi.API/                 # API layer (Controllers, Program.cs)
+│   ├── Controllers/
+│   ├── Program.cs
+│   └── appsettings.json
+├── RestaurantApi.Application/         # Business logic layer (Services)
+│   ├── Services/
+│   └── Interfaces/
+├── RestaurantApi.Domain/              # Core entities & contracts
+│   ├── Entities/
+│   └── Interfaces/
+├── RestaurantApi.Infrastructure/      # DB context, Repositories
+│   ├── Data/
+│   └── Repositories/
+├── RestaurantApi.Tests/               # Unit Tests using xUnit
+│   ├── Controllers/
+│   ├── Services/
+│   └── Repositories/
+└── RestaurantApi.sln                  # .NET solution file
+```
 
+---
 
-## 📌 Entity: \`MenuItem\`
+## 📌 Entity: `MenuItem`
 
-\`\`\`json
+```json
 {
   "id": "abc123",
   "name": "Cheeseburger",
@@ -43,7 +56,7 @@ RestaurantApi/
   "category": "Main",
   "isAvailable": true
 }
-\`\`\`
+```
 
 ---
 
@@ -51,25 +64,27 @@ RestaurantApi/
 
 | Method | Endpoint               | Description             |
 |--------|------------------------|-------------------------|
-| GET    | \`/api/menuitems\`       | Get all menu items      |
-| GET    | \`/api/menuitems/{id}\`  | Get a menu item by ID   |
-| POST   | \`/api/menuitems\`       | Create a new menu item  |
-| PUT    | \`/api/menuitems/{id}\`  | Update an existing item |
-| DELETE | \`/api/menuitems/{id}\`  | Delete a menu item      |
-| GET    | \`/health\`              | Check service health    |
+| GET    | `/api/menuitems`       | Get all menu items      |
+| GET    | `/api/menuitems/{id}`  | Get a menu item by ID   |
+| POST   | `/api/menuitems`       | Create a new menu item  |
+| PUT    | `/api/menuitems/{id}`  | Update an existing item |
+| DELETE | `/api/menuitems/{id}`  | Delete a menu item      |
+| GET    | `/health`              | Check service health    |
 
 ---
 
 ## ⚙️ MongoDB Configuration
 
-In \`appsettings.json\`:
+In `appsettings.json`:
 
-\`\`\`json
-"MongoDb": {
-  "ConnectionString": "mongodb://localhost:27017",
-  "DatabaseName": "RestaurantDb"
+```json
+{
+  "MongoDb": {
+    "ConnectionString": "mongodb://localhost:27017",
+    "DatabaseName": "RestaurantDb"
+  }
 }
-\`\`\`
+```
 
 Override these with environment variables for production use.
 
@@ -79,13 +94,13 @@ Override these with environment variables for production use.
 
 This project is structured based on **Clean Architecture**:
 
-- 🧩 **Domain** – core business entity (\`MenuItem\`)
-- 🧠 **Application** – business logic (\`MenuItemService\`)
-- 💾 **Infrastructure** – data access (\`MongoContext\`, \`MenuItemRepository\`)
-- 🌐 **API** – controllers and API logic (\`MenuItemsController\`)
+- 🧩 **Domain** – core business entity (`MenuItem`)
+- 🧠 **Application** – business logic (`MenuItemService`)
+- 💾 **Infrastructure** – data access (`MongoContext`, `MenuItemRepository`)
+- 🌐 **API** – controllers and API logic (`MenuItemsController`)
 - 🧪 **Tests** – unit tests using xUnit
 
-Benefits:
+**Benefits:**
 - Separation of concerns ✅  
 - Testability ✅  
 - Scalable and maintainable ✅
@@ -95,25 +110,25 @@ Benefits:
 ## ▶️ Getting Started
 
 1. **Clone the repo**:
-   \`\`\`bash
-   git clone https://github.com/yourusername/restaurant-api.git
+   ```bash
+   git clone https://github.com/amitavin/restaurant-api.git
    cd restaurant-api
-   \`\`\`
+   ```
 
 2. **Run the API**:
-   \`\`\`bash
+   ```bash
    dotnet run --project RestaurantApi.API
-   \`\`\`
+   ```
 
 3. **View in browser**:
-   \`\`\`
+   ```
    https://localhost:5001/swagger/index.html
-   \`\`\`
+   ```
 
 4. **Test MongoDB connection** (ensure MongoDB is running locally):
-   \`\`\`
+   ```
    GET /api/menuitems
-   \`\`\`
+   ```
 
 ---
 
@@ -176,6 +191,3 @@ This endpoint intentionally throws an exception to demonstrate the middleware's 
 **Amit Kumar Sharma**  
 🌐 [LinkedIn](https://www.linkedin.com/in/amitavin)  
 📍 Sitecore Certified Developer | .NET Fullstack Engineer | Clean Code Enthusiast
-
----
-EOF
