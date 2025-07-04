@@ -185,6 +185,36 @@ This endpoint intentionally throws an exception to demonstrate the middleware's 
 
 ---
 
+## 🍃 MongoDB Integration & Seed Data
+
+The application is now connected to MongoDB with pre-populated sample data for development and testing purposes.
+
+### 🗄️ Database Setup
+- **Database**: RestaurantDb
+- **Collection**: MenuItems
+- **Sample Data**: Pre-loaded with dummy menu items for immediate testing
+
+### 📁 Seed Data File
+The seed data is available in the repository at:
+```
+DatabaseSeed/RestaurantDb.MenuItems.json
+```
+
+### 🔄 MongoDB Import/Export Commands
+
+#### 📥 Import Collection
+To import the MenuItems collection from the seed file:
+```bash
+# Import from JSON file
+mongoimport --db RestaurantDb --collection MenuItems --file DatabaseSeed/RestaurantDb.MenuItems.json --jsonArray
+```
+
+### 🖥️ MongoDB Compass
+For a GUI approach, you can use MongoDB Compass to:
+- Import: Collection → Add Data → Import File
+- Export: Collection → Export Data → Export Full Collection
+
+---
 
 ## 🧑‍💻 Author
 

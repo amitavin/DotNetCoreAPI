@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "64d26f2bcf1e88e9e5e01111"
+  },
+  "name": "Margherita Pizza",
+  "description": "Classic pizza with fresh tomatoes, mozzarella, and basil.",
+  "price": 7.99,
+  "category": "Main",
+  "isAvailable": true
+},
+{
+  "_id": {
+    "$oid": "64d26f2bcf1e88e9e5e02222"
+  },
+  "name": "Cheeseburger",
+  "description": "Juicy grilled beef burger with cheddar cheese.",
+  "price": 9.49,
+  "category": "Main",
+  "isAvailable": true
+},
+{
+  "_id": {
+    "$oid": "64d26f2bcf1e88e9e5e03333"
+  },
+  "name": "Caesar Salad",
+  "description": "Crisp romaine lettuce, croutons, parmesan, and Caesar dressing.",
+  "price": 5.49,
+  "category": "Starter",
+  "isAvailable": true
+},
+{
+  "_id": {
+    "$oid": "64d26f2bcf1e88e9e5e04444"
+  },
+  "name": "Tiramisu",
+  "description": "Classic Italian dessert layered with mascarpone and espresso-soaked ladyfingers.",
+  "price": 4.99,
+  "category": "Dessert",
+  "isAvailable": true
+},
+{
+  "_id": {
+    "$oid": "64d26f2bcf1e88e9e5e05555"
+  },
+  "name": "Lemonade",
+  "description": "Refreshing homemade lemonade with a hint of mint.",
+  "price": 2.99,
+  "category": "Drinks",
+  "isAvailable": true
+},
+{
+  "_id": {
+    "$oid": "6867d2104818ef43f63061f2"
+  },
+  "name": "test-amit",
+  "description": "Refreshing homemade lemonade with a hint of mint.",
+  "price": 0.99,
+  "category": "Drinks",
+  "isAvailable": true
+}]
