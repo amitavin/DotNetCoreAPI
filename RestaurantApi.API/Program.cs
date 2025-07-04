@@ -1,6 +1,7 @@
+using RestaurantApi.API.Middleware;
+using RestaurantApi.Application.Services;
 using RestaurantApi.Infrastructure.Data;
 using RestaurantApi.Infrastructure.Repositories;
-using RestaurantApi.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ builder.Services.AddScoped<MenuItemService>();
 builder.Services.AddHealthChecks();
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -59,5 +59,12 @@ namespace RestaurantApi.API.Controllers
             await _service.DeleteAsync(id);
             return NoContent();
         }
+
+        [HttpGet("test-error")]
+        public IActionResult TestError()
+        {
+            throw new Exception("Test exception thrown!");
+        }
+
     }
 }

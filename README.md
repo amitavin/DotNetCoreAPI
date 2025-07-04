@@ -135,11 +135,47 @@ Feel free to fork, clone, or contribute!
 
 ---
 
+## 🛡️ Global Exception Handling
+
+We've implemented comprehensive global exception handling middleware to ensure robust error management across the API.
+
+### Features
+- **Centralized Error Handling**: Catches all unhandled exceptions across the API
+- **Structured Logging**: Integrates with configured loggers (Serilog support ready for future implementation)
+- **Consistent Error Response**: Returns standardized JSON error responses
+- **Environment-Aware**: Protects production environments from exposing sensitive information
+
+### Error Response Format
+```json
+{
+  "statusCode": 500,
+  "message": "Something went wrong!",
+  "stackTrace": "..." // Only included in Development environment
+}
+```
+
+### Implementation
+The middleware is registered in the application pipeline:
+```csharp
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+```
+
+### Testing
+To test the exception handling functionality, use the dedicated test endpoint:
+```
+GET /api/menuitems/test-error
+```
+
+This endpoint intentionally throws an exception to demonstrate the middleware's error handling capabilities.
+
+---
+
+
 ## 🧑‍💻 Author
 
 **Amit Kumar Sharma**  
 🌐 [LinkedIn](https://www.linkedin.com/in/amitavin)  
-📍 Sitecore Certified Developer | .NET Expert | Clean Code Enthusiast
+📍 Sitecore Certified Developer | .NET Fullstack Engineer | Clean Code Enthusiast
 
 ---
 EOF
