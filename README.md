@@ -31,6 +31,8 @@ RestaurantApi/
 └── RestaurantApi.sln           # .NET solution file
 \`\`\`
 
+---
+
 
 ## 📌 Entity: \`MenuItem\`
 
