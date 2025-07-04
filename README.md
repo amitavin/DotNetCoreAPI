@@ -21,15 +21,16 @@ Use this API to manage your restaurant’s menu items including name, price, des
 
 ## 🧾 Folder Structure
 
-\`\`\`plaintext
-RestaurantApi/
-├── RestaurantApi.API           # API layer (Controllers, Program.cs)
-├── RestaurantApi.Application   # Business logic layer (Services)
-├── RestaurantApi.Domain        # Core entities & contracts
-├── RestaurantApi.Infrastructure# DB context, Repositories
-├── RestaurantApi.Tests         # Unit Tests using xUnit
-└── RestaurantApi.sln           # .NET solution file
-\`\`\`
+
+| Folder / File                   | Purpose                                |
+|---------------------------------|----------------------------------------|
+| `RestaurantApi.API/`            | API layer (Controllers, Program.cs)    |
+| `RestaurantApi.Application/`    | Business logic layer (Services)        |
+| `RestaurantApi.Domain/`         | Core entities & contracts              |
+| `RestaurantApi.Infrastructure/` | DB context, Repositories               |
+| `RestaurantApi.Tests/`          | Unit Tests using xUnit                 |
+| `RestaurantApi.sln`             | .NET solution file                     |
+
 
 ---
 
