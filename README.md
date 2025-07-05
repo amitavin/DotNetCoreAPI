@@ -132,24 +132,6 @@ This project is structured based on **Clean Architecture**:
 
 ---
 
-## 🗃️ Next Steps (To Be Implemented)
-
-- ✅ Input validation  
-- ✅ Serilog for structured logging  
-- ✅ JWT authentication & role-based authorization  
-- ✅ Global exception handling  
-- ✅ Unit test coverage with xUnit + Moq  
-
----
-
-## 🙌 Contribution & Learning
-
-This project is part of my learning and exploration of modern .NET backend development using MongoDB and clean architectural practices.
-
-Feel free to fork, clone, or contribute!
-
----
-
 ## 🛡️ Global Exception Handling
 
 We've implemented comprehensive global exception handling middleware to ensure robust error management across the API.
@@ -213,6 +195,65 @@ mongoimport --db RestaurantDb --collection MenuItems --file DatabaseSeed/Restaur
 For a GUI approach, you can use MongoDB Compass to:
 - Import: Collection → Add Data → Import File
 - Export: Collection → Export Data → Export Full Collection
+
+---
+
+## ✅ FluentValidation Integration
+
+We've integrated **FluentValidation** for comprehensive model validation in the API, ensuring robust input validation and better error handling.
+
+### 🎯 Features Implemented
+- **Model Validation**: Integrated FluentValidation for automatic model validation
+- **Custom Validators**: Created `MenuItemDtoValidator` with comprehensive validation rules
+- **Dependency Injection**: Registered FluentValidation in the DI pipeline
+- **DTO Integration**: Replaced domain entity binding with DTOs for clean separation
+- **Automatic Error Handling**: Returns HTTP 400 with detailed validation errors
+
+### 🔧 Validation Rules
+The `MenuItemDtoValidator` enforces the following business rules:
+- **Name**: Required field with maximum length validation
+- **Description**: Required field with maximum length validation  
+- **Price**: Must be greater than zero
+- **Category**: Required field
+
+### ⚙️ Configuration
+FluentValidation is registered in the dependency injection pipeline:
+```csharp
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<MenuItemDtoValidator>();
+```
+
+### 🛡️ Security & Architecture Benefits
+- **Clean Separation**: Uses DTOs instead of domain entities in controller actions
+- **Safe Validation**: Prevents invalid data from reaching the business logic
+- **Automatic Response**: Returns HTTP 400 with validation errors automatically
+
+### 📋 Error Response Format
+When validation fails, the API returns a structured error response:
+```json
+{
+  "errors": {
+    "Name": [
+      "Name is required."
+    ],
+    "Price": [
+      "Price must be greater than zero."
+    ]
+  }
+}
+```
+
+### 🎉 Benefits
+This implementation makes the API more **robust** and **secure** against invalid input, providing clear feedback to clients about validation failures.
+
+```
+
+## 🙌 Contribution & Learning
+
+This project is part of my learning and exploration of modern .NET backend development using MongoDB and clean architectural practices.
+
+Feel free to fork, clone, or contribute!
 
 ---
 
