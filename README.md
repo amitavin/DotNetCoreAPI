@@ -255,7 +255,7 @@ This project is part of my learning and exploration of modern .NET backend devel
 
 Feel free to fork, clone, or contribute!
 
----
+```
 
 ## 🧑‍💻 Author
 
