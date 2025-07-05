@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RestaurantApi.API.Models;
 using RestaurantApi.Application.Services;
 using RestaurantApi.Domain.Entities;
 
@@ -39,10 +40,23 @@ namespace RestaurantApi.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(MenuItem item)
+        public async Task<IActionResult> Create(MenuItemDto dto)
         {
-            await _service.CreateAsync(item);
-            return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var newItem = new MenuItem
+            {
+                Name = dto.Name,
+                Description = dto.Description,
+                Price = dto.Price,
+                Category = dto.Category,
+                IsAvailable = dto.IsAvailable
+            };
+
+            await _service.CreateAsync(newItem);
+
+            return CreatedAtAction(nameof(GetById), new { id = newItem.Id }, newItem);
         }
 
         [HttpPut("{id}")]
